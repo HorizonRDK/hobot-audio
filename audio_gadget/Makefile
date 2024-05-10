@@ -12,8 +12,8 @@ SRC = audio_gadget.c
 EXEC = audio_gadget
 export SYSROOT_DIR=$(realpath ../../../deploy)/rootfs
 LIB_DIR = -L../lib/ -L../lib/hbmedia -L../lib/aarch64-linux-gnu  -Wl,-rpath-link=../lib/ -L./
-INCLUDE_DIR = -I../include/iar/ -I../include/vio/
-LIB_DIR += -L${SYSROOT_DIR}/usr/lib/aarch64-linux-gnu --sysroot=${SYSROOT_DIR}
+INCLUDE_DIR = -I../include/iar/ -I../include/vio/ -I/opt/gcc-arm-11.2-2022.02-x86_64-aarch64-none-linux-gnu/aarch64-none-linux-gnu/libc/usr/include
+LIB_DIR += -L${SYSROOT_DIR}/usr/lib/aarch64-linux-gnu -Wl,-rpath-link=${SYSROOT_DIR}/usr/lib/aarch64-linux-gnu/ --sysroot=${SYSROOT_DIR}
 # Libraries to link
 LIBS = -lasound
 
